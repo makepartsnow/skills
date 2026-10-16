@@ -38,7 +38,7 @@ Requests send `Authorization: Bearer $MPN_API_KEY`. If `MPN_API_KEY` isn't set:
 
 1. Only when the user picks a speed, set it: `PATCH /quotes/{id}` with `{"speed": "<id>"}`. Faster speeds that ship overnight may need the US ship-to address; ask if `next_steps` says so.
 2. `POST /quotes/{id}/checkout` returns `checkout_url`. Give it to the user: they review the order, enter shipping and pay by card on makepartsnow.com (Stripe). Don't say the order is placed until they say they paid.
-3. Never call `POST /quotes/{id}/pay` (autonomous USDC) unless the user explicitly asks to pay that way and has set it up.
+3. You never pay or enter payment details: this skill only prepares the order, and the person completes it on the website.
 
 Order status afterwards: `GET /orders?quote_id=<id>` and `GET /orders/{id}` (status, ship date, tracking).
 

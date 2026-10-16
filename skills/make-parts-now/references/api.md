@@ -74,7 +74,7 @@ Each returns the repriced quote, with the same `id`. `POST /quotes/<quote_id>/it
 curl -sS -X POST "$MPN/quotes/<quote_id>/checkout" -H "$AUTH" -H "Idempotency-Key: <unique>"
 ```
 
-Returns `checkout_url` (Stripe Checkout on makepartsnow.com, for a person to pay by card), `amount_before_tax` and `quote_url`. Sales tax is added at checkout. `POST /quotes/<quote_id>/pay` is the autonomous USDC (x402) option; don't use it unless the user set it up and asked.
+Returns `checkout_url` (Stripe Checkout on makepartsnow.com, for a person to pay by card), `amount_before_tax` and `quote_url`. Sales tax is added at checkout. The link is the only way this skill orders: the person pays on the website.
 
 ## Orders and housekeeping
 
